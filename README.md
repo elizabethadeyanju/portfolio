@@ -1,5 +1,5 @@
 # Astrofy | Personal Portfolio Website Template
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96845563-0ca2-4e58-87b9-74c9b5b3d8c5/deploy-status?branch=live)](https://app.netlify.com/sites/silver-paletas-d4034f/deploys)
 ![Astrofy | Personal Porfolio Website Template](public/social_img.webp)
 
 Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.

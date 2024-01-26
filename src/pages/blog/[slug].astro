@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import type { BlogSchema } from "../../content/config";
 import PostLayout from "../../layouts/PostLayout.astro";
 import createSlug from "../../lib/createSlug";
-import { fetchHashnodePosts } from "src/content/hashnode";
+import { fetchHashnodePosts } from "src/lib/hashnode";
 
 export async function getStaticPaths() {
   const postEntries = await fetchHashnodePosts();
@@ -18,18 +18,9 @@ export async function getStaticPaths() {
       coverImage: entry.coverImage,
       tags: entry.tags,
     },
-  }));
-  // return [
-  //   {
-  //     params: { slug: createSlug("Getting Started with Git for Beginners") },
-  //     props: {title: "new tile"},
-  //   },
-  // ];
+  })); 
 }
-
-// interface Props {
-//   entry: CollectionEntry<"blog">;
-// }
+ 
 
 const { slug } = Astro.params;
 const { title, subtitle, content, publishedAt, updatedAt, coverImage, tags } =
@@ -51,3 +42,4 @@ const { title, subtitle, content, publishedAt, updatedAt, coverImage, tags } =
   ,
   tags={tags}
 />
+src/lib/hashnode

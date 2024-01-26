@@ -6,7 +6,7 @@ const blogSchema = z.object({
     content: z.object({ html: z.string(), markdown: z.string(), text: z.string() }).optional(),
     coverImage: z.object({ url: z.string(), isPortrait: z.boolean() }).optional(),
     badge: z.string().optional(),
-    slug: z.string().optional(),
+    // slug: z.string().optional(),
     publishedAt: z.coerce.date().optional(), updatedAt: z.coerce.date().optional(),
     tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
         message: 'tags must be unique',

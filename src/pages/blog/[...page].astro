@@ -2,11 +2,13 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../../lib/createSlug"
+import createSlug from "../../lib/createSlug";
+import { fetchHashnodePosts } from "src/lib/hashnode";
 
 export async function getStaticPaths({ paginate }) {
-  const posts = await getCollection("blog");
-  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const posts = await fetchHashnodePosts();
+
+  posts.sort((a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf());
   return paginate(posts, { pageSize: 10 });
 }
 
@@ -29,13 +31,12 @@ const { page } = Astro.props;
         {page.data.map((post) => (
           <>
             <HorizontalCard
-              title={post.data.title}
-              img={post.data.heroImage}
-              desc={post.data.description}
-              url={"/blog/" + createSlug(post.data.title, post.slug)}
-              target="_self"
-              badge={post.data.badge}
-              tags={post.data.tags}
+              title={post.title}
+              img={post.coverImage.url}
+              desc={post.subtitle}
+              url={"/blog/" + createSlug(post.title)}
+              target="_self" 
+              tags={post.tags}
             />
             <div class="divider my-0" />
           </>
@@ -46,8 +47,8 @@ const { page } = Astro.props;
 
   <div class="flex justify-between">
     {
-      page.url.prev ? (
-        <a href={page.url.prev} class="btn btn-ghost my-10 mx-5">
+      page.data.prev ? (
+        <a href={page.data.prev} class="btn btn-ghost my-10 mx-5">
           {" "}
           <svg
             class="h-6 w-6 fill-current md:h-8 md:w-8"
@@ -65,8 +66,8 @@ const { page } = Astro.props;
       )
     }
     {
-      page.url.next ? (
-        <a href={page.url.next} class="btn btn-ghost my-10 mx-5">
+      page.data.next ? (
+        <a href={page.data.next} class="btn btn-ghost my-10 mx-5">
           Older Posts{" "}
           <svg
             class="h-6 w-6 fill-current md:h-8 md:w-8"
@@ -85,3 +86,4 @@ const { page } = Astro.props;
     }
   </div>
 </BaseLayout>
+src/lib/hashnode

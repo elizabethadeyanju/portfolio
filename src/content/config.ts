@@ -1,11 +1,13 @@
 import { z, defineCollection } from "astro:content";
 const blogSchema = z.object({
     title: z.string(),
-    description: z.string(),
-    pubDate: z.coerce.date(),
-    updatedDate: z.string().optional(),
-    heroImage: z.string().optional(),
+    subtitle: z.string().optional(),
+    url: z.string().optional(),
+    content: z.object({ html: z.string(), markdown: z.string(), text: z.string() }).optional(),
+    coverImage: z.object({ url: z.string(), isPortrait: z.boolean() }).optional(),
     badge: z.string().optional(),
+    slug: z.string().optional(),
+    publishedAt: z.coerce.date().optional(), updatedAt: z.coerce.date().optional(),
     tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
         message: 'tags must be unique',
     }).optional(),

@@ -1,34 +1,53 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
-import { BlogSchema } from "../../content/config";
+import { type CollectionEntry, getCollection } from "astro:content";
+import type { BlogSchema } from "../../content/config";
 import PostLayout from "../../layouts/PostLayout.astro";
-import createSlug from "../../lib/createSlug"
+import createSlug from "../../lib/createSlug";
+import { fetchHashnodePosts } from "src/content/hashnode";
 
 export async function getStaticPaths() {
-  const postEntries = await getCollection("blog");
+  const postEntries = await fetchHashnodePosts();
   return postEntries.map((entry) => ({
-    params: { slug: createSlug(entry.data.title, entry.slug) },
-    props: { entry },
+    params: { slug: createSlug(entry.title) },
+    props: {
+      title: entry.title,
+      subtitle: entry.subtitle,
+      content: entry.content,
+      updatedAt: entry.updatedAt,
+      publishedAt: entry.publishedAt,
+      coverImage: entry.coverImage,
+      tags: entry.tags,
+    },
   }));
+  // return [
+  //   {
+  //     params: { slug: createSlug("Getting Started with Git for Beginners") },
+  //     props: {title: "new tile"},
+  //   },
+  // ];
 }
 
-interface Props {
-  entry: CollectionEntry<"blog">;
-}
+// interface Props {
+//   entry: CollectionEntry<"blog">;
+// }
 
-const { entry } = Astro.props;
-const post: BlogSchema = entry.data;
-const { Content } = await entry.render();
+const { slug } = Astro.params;
+const { title, subtitle, content, publishedAt, updatedAt, coverImage, tags } =
+  Astro.props;
+// const post: BlogSchema = entry.data;
 ---
 
 <PostLayout
-  title={post.title}
-  description={post.description}
-  pubDate={post.pubDate}
-  heroImage={post.heroImage}
-  updatedDate={post.updatedDate}
-  badge={post.badge}
-  tags={post.tags}
->
-  <Content />
-</PostLayout>
+  title={title}
+  subtitle={subtitle}
+  ,
+  content={content}
+  ,
+  publishedAt={publishedAt}
+  ,
+  updatedAt={updatedAt}
+  ,
+  coverImage={coverImage}
+  ,
+  tags={tags}
+/>

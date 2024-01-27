@@ -9,35 +9,100 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="mb-10 text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Throughout my journey as a backend developer, I have had the privilege of
+    contributing significantly to various projects, and I am excited to present
+    my experience as a timeline of impactful events. This timeline showcases my
+    roles and the substantial impact I've made as an individual within both
+    small and large teams.
   </div>
 
- 
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc mx-6 flex space-x-20">
+    <li>Git</li>
+    <li>Javascript</li>
+    <li>PHP</li>
+    <li>NodeJs</li>
+    <li>AWS</li>
+    <li>Docker</li> 
+  </ul>
+
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Experience</div>
   </div>
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Backend Engineer"
+      subtitle="From June, 2023 to November, 2023 at My Medical Bank, Lagos, Nigeria"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      <dl>
+        <dd>
+          Worked across a cross functional team of both mobile and frontend
+          engineers to deliver on the company's product vision.
+        </dd>
+        <dd>
+          Deployed and manages an EC2 production and staging instance to ensure
+          99.99% availability of the web server on production.
+        </dd>
+        <dd>
+          Design a database migration strategy that moved 100% of existing users
+          onboard the newly built Public Health Record (PHR) system.
+        </dd>
+      </dl>
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Backend Engineer"
+      subtitle="From October, 2022 to July, 2023 at Revent Technologies, Lagos, Nigeria"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      <dl>
+        <dd>
+          Designed and implemented a scalable, high-performance Node.js API
+          using Javascript that improved the overall speed and reliability of
+          the client’s internal financial infrastructure by 60%.
+        </dd>
+        <dd>
+          Led the development of a MySQL database system, streamlining data
+          management and increasing data processing speed by 50%.
+        </dd>
+        <dd>
+          Improved overall code quality and efficiency through regular code
+          reviews and collaboration with other developers, resulting in a 25%
+          decrease in bugs and support tickets.
+        </dd>
+        <dd>
+          Created and maintained documentation for internal APIs, resulting in a
+          50% increase in frontend developers productivity due to improved
+          understanding of the system.
+        </dd>
+      </dl>
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Junior Backend Engineer"
+      subtitle="From October, 2022 to July, 2023 at Beezop Technologies, Lagos, Nigeria"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      <dl>
+        <dd>
+          Overhauled company’s existing notification microservice to handle 100%
+          of all notifications.
+        </dd>
+        <dd>
+          Implemented a RESTful API for the company's SAAS platform, resulting
+          in a 40% increase in sales due to improved user experience.
+        </dd>
+        <dd>
+          Designed a complex import feature using excel sheet as input file to
+          help users import in bulk documents to drive companies software
+          adoption rate.
+        </dd>
+        <dd>
+          Collaborated with cross-functional teams to integrate third-party APIs
+          and platforms, resulting in a seamless user experience and increased
+          customer satisfaction by 60%.
+        </dd>
+      </dl>
     </TimeLineElement>
   </div>
   <div class="mb-5">
@@ -46,15 +111,14 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Software Engineering"
+      subtitle="2019 at Stutern - Graduate Accelerator Program, Lagos, Nigeria"
     />
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Bachelor in Technology Education"
+      subtitle="February, 2018 at Modibbo Adama University of Technology, Adamawa, Nigeria"
     />
   </div>
-
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Certifications</div>
@@ -62,32 +126,43 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
     <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
+      <a
+        href="https://drive.google.com/file/d/1ubVdXx-aykmOPh25kNABvrTiZHqsFI9j/view?usp=sharing"
+        target="_blank"
+        >HNGi9 Certificate of Completion</a
+      >
     </li>
     <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
+      <a
+        href="https://drive.google.com/file/d/1R6D3tNIq9Wr_oPHmwe0UTv-f0hD2i5Dj/view?usp=sharing"
+        target="_blank"
+        >Certificate of Completion - Codename: Learnable '20 Virtual Internship
+        Programme</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://coursera.org/share/26b723d44f2e76256d9c46055f664921"
+        target="_blank">Jobberman Soft Skills Course</a
+      >
     </li>
   </ul>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
+    <div class="text-3xl w-full font-bold">Volunteer</div>
   </div>
 
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-  </ul>
+  <TimeLineElement title="2023" class="time-line-container grid gap-4 mb-10">
+    <dl>
+      <dd>Web Development Mentor - Genesys Upskill Program Enugu</dd><br />
+      <dd>Organizing Member - CityJs Lagos</dd>
+    </dl>
+  </TimeLineElement>
+  <TimeLineElement title="2019">
+    <dl>
+      <dd>
+        <p>Coper Liaison Officer(CLO) - National Youth Service Corps Lagos</p>
+      </dd>
+    </dl>
+  </TimeLineElement>
 </BaseLayout>

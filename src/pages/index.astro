@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
-import { fetchHashnodePosts } from "src/lib/hashnode"; 
+import { fetchHashnodePosts } from "src/lib/hashnode";
 
 const posts = await fetchHashnodePosts();
 ---
@@ -17,43 +17,50 @@ const posts = await fetchHashnodePosts();
     </div>
     <div class="py-2">
       <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal
-        Portfolio Website built with Astro and TailwindCSS. Create in minutes a website
-        with Blog, CV, Project Section, Store and RSS Feed. I hope you find it useful!
+        As a software engineer with over 3 years working experience, I've
+        collaborated with diverse industries within Nigeria such as Education, Fintech,
+        Health, and Operations, using various tech tools and languages to
+        contribute significantly to startups and Open Source projects. My
+        journey encompassed mastering PHP, JavaScript, Laravel, NodeJs, React,
+        databases (Postgres, MySQL, MongoDB), cloud services (AWS), Docker, Git,
+        Linux, among others.
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn btn-outline" href="https://x.com/njolipatrick" target="_blank">
+      <a
+        class="btn btn-outline"
+        href="https://x.com/njolipatrick"
+        target="_blank"
+      >
         Let's connect!</a
       >
-      <!-- <a
-        href="https://github.com/njolipatrick"
-        target="_blank"
-        class="btn btn-outline ml-5"
-      >
-        Get This template
-      </a> -->
+      <a href="/cv" target="_self" class="btn btn-outline ml-5">
+        Review my Resume
+      </a>
     </div>
   </div>
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
 
+  {
+    posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.title}
+          img={post.coverImage.url}
+          desc={post.subtitle}
+          url={"/blog/" + createSlug(post.title, post.slug)}
+          target="_self"
+          badge={post.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
   <!-- <div>
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>
-
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Demo Project 3"
@@ -62,26 +69,5 @@ const posts = await fetchHashnodePosts();
     url="#"
     badge="FOSS"
   /> -->
-
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
-
-  
-  {
-    posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.title}
-          img={post.coverImage.url}
-          desc={post.subtitle}
-          url={"/blog/" +  createSlug(post.title, post.slug)}
-          target="_self"
-          badge={post.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
 </BaseLayout>
 src/lib/hashnode

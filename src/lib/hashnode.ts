@@ -52,5 +52,6 @@ export const fetchHashnodePosts = async () => {
   } catch (error) {
     // Handle errors here
     console.error("Error:", error);
+    return [];
   }
 }; 

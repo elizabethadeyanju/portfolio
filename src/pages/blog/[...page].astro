@@ -37,6 +37,7 @@ const { page } = Astro.props;
               url={"/blog/" + createSlug(post.title)}
               target="_self" 
               tags={post.tags}
+              publishedAt={post.publishedAt}
             />
             <div class="divider my-0" />
           </>
@@ -85,5 +86,4 @@ const { page } = Astro.props;
       )
     }
   </div>
-</BaseLayout>
-src/lib/hashnode
+</BaseLayout> 

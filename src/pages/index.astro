@@ -53,6 +53,7 @@ const posts = await fetchHashnodePosts();
           url={"/blog/" + createSlug(post.title, post.slug)}
           target="_self"
           badge={post.badge}
+          publishedAt={post.publishedAt}
         />
         <div class="divider my-0" />
       </>
@@ -69,5 +70,4 @@ const posts = await fetchHashnodePosts();
     url="#"
     badge="FOSS"
   /> -->
-</BaseLayout>
-src/lib/hashnode
+</BaseLayout> 

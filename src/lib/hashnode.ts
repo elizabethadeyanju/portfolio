@@ -46,8 +46,7 @@ export const fetchHashnodePosts = async () => {
         },
       },
     } = await response.json();
-    // Handle the data here
-    // console.log(nodes);
+    
     return nodes;
   } catch (error) {
     // Handle errors here

@@ -1,7 +1,20 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_self" } = Astro.props;
+const {
+  title,
+  img,
+  desc,
+  url,
+  badge,
+  tags,
+  target = "_self",
+  publishedAt,
+} = Astro.props;
 import { Image } from "astro:assets";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import dayjs from "dayjs";
 const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+dayjs.extend(localizedFormat);
+const displayDate = dayjs(publishedAt).format("ll");
 ---
 
 <div
@@ -37,6 +50,7 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
               ))
           }
         </div>
+        <p class="text-1xl">{publishedAt && <time>{displayDate}</time>}</p>
       </div>
     </div>
   </a>
